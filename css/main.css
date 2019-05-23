@@ -17,3 +17,6 @@ button:active{
 button:hover{
     background-color: #0daddd;
 }
+p{
+    font-size: 1.2em;
+}
