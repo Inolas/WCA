@@ -1,7 +1,8 @@
 var displayContainer = document.getElementById("JSONdata");
 var mBtn = document.getElementById("getStuff");
+var mCount = document.getElementById("listCount");
 var htmlData = '';
-var index = 26262;
+var index = 1;
 
 mBtn.addEventListener("click", function () {
     //create a request
@@ -12,24 +13,27 @@ mBtn.addEventListener("click", function () {
     
     mRequest.onload = function(){ //start accessing JSON data
         var WCAdata = JSON.parse(mRequest.responseText);
-        console.log(WCAdata[26265]);
-        // displayHtml(WCAdata[26265]);
         
         displayHtml(WCAdata[index]);
-        index++;  
+        index++;
     }
     //sent the request
     mRequest.send();
-    
-    if (index > 26270) {
-        // mBtn.classList.add("hide-btn");
-        this.style.display = 'none';
-    }      
+    //if I place index++; here the screen displays 2. first instead of 1.
+    if (index > 5) {
+        console.log(index);
+        
+        this.classList.add("hide-btn");
+        // this.style.display = 'none';
+    }
+
 })
 
 function displayHtml(data){
 
-
-    htmlData = '<br><p>'+(index%26261)+'. '+data.personName +' participated in ' +data.eventId+' with an average speed '+data.average+'</p>';
+    listCount.innerHTML = index;
+    
+    htmlData = '<br><p>'+(index)+'. '+data.personName +' participated in ' +data.eventId
+                +' with an average speed '+(data.average/60).toFixed(3)+' secs</p>';
     displayContainer.insertAdjacentHTML('beforeend', htmlData);
 }
