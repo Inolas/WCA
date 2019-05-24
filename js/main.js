@@ -1,6 +1,8 @@
 var displayContainer = document.getElementById("JSONdata");
 var mBtn = document.getElementById("getStuff");
 var mCount = document.getElementById("listCount");
+var mList = document.getElementById("orderedList");
+
 var htmlData = '';
 var index = 1;
 
@@ -14,7 +16,7 @@ mBtn.addEventListener("click", function () {
     mRequest.onload = function(){ //start accessing JSON data
         var WCAdata = JSON.parse(mRequest.responseText);
         
-        displayHtml(WCAdata[index]);
+        displayHtml(WCAdata);
         index++;
     }
     //sent the request
@@ -30,10 +32,17 @@ mBtn.addEventListener("click", function () {
 })
 
 function displayHtml(data){
-
+    // mList.insertAdjacentHTML(beforeend, '<ol>');
+    // htmlData = '<ol>';
     listCount.innerHTML = index;
     
-    htmlData = '<br><p>'+(index)+'. '+data.personName +' participated in ' +data.eventId
-                +' with an average speed '+(data.average/60).toFixed(3)+' secs</p>';
-    displayContainer.insertAdjacentHTML('beforeend', htmlData);
+    data.forEach(element => {
+        // htmlText = '<li>';
+        htmlData += '<li><p>'+(index)+'. '+data.personName +' participated in ' +data.eventId
+                    +' with an average speed '+(data.average/60).toFixed(3)+' secs</p></li>';        
+    });
+        mList.insertAdjacentHTML('beforeend', htmlData);
+
+    // mList.insertAdjacentHTML(beforeend, '</ol>');
+
 }
