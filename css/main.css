@@ -24,7 +24,7 @@ button:hover{
 }
 p{
     font-size: 1.2em;
-    padding-left: 10em;
+    padding: .2em;
     margin: 0;
 }
 #listCount{
@@ -32,4 +32,7 @@ p{
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
     float: right;
+}
+input{
+    width: 20em;
 }
