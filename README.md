@@ -5,4 +5,4 @@ Some expertiments using AJAX - JavaScript on WCA database (https://www.worldcube
 |-- master
 |-- Inolas
 |-- TagName
-|-- 
+|-- jQuery
