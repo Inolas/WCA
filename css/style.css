@@ -1,0 +1,35 @@
+header{
+    padding: 10px;
+}
+.container{
+    padding: 0;
+    margin: 0;
+}
+.hide-btn{
+    visibility: hidden;
+    transform: scale(0.75);
+}
+button{
+    background-color: #0AD;
+    font: outline;
+    padding: 10px;
+    font-size: 1.2em;
+    
+}
+button:active{
+    background-color: #069;
+}
+button:hover{
+    background-color: #0daddd;
+}
+p{
+    font-size: 1.2em;
+    padding-left: 10em;
+    margin: 0;
+}
+#listCount{
+    font-size: 3em;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    float: right;
+}
